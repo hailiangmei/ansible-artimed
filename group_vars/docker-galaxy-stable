@@ -1,0 +1,29 @@
+galaxy_server_dir: /galaxy-central
+galaxy_config_dir: /etc/galaxy
+galaxy_mutable_config_dir: /galaxy-central/config
+create_export_dir: yes
+export_dir: /export
+galaxy_job_conf_path: "{{ galaxy_config_dir }}/job_conf.xml"
+galaxy_job_metrics_conf_path: "{{ galaxy_config_dir }}/job_metrics_conf.xml"
+galaxy_user_gid: ansible_env.GALAXY_UID
+galaxy_user_uid: ansible_env.GALAXY_GID
+postgres_user_uid: ansible_env.GALAXY_POSTGRES_UID
+postgres_gid: ansible_env.GALAXY_POSTGRES_GID
+galaxy_admin: ansible_env.GALAXY_CONFIG_ADMIN_USERS
+galaxy_admin_pw: ansible_env.GALAXY_DEFAULT_ADMIN_PASSWORD
+default_admin_api_key: ansible_env.GALAXY_CONFIG_MASTER_API_KEY
+proftpd_files_dir: ansible_env.GALAXY_CONFIG_FTP_UPLOAD_DIR
+galaxy_db: ansible_env.GALAXY_CONFIG_DATABASE_CONNECTION
+galaxy_hostname: ansible_env.GALAXY_CONFIG_FTP_UPLOAD_SITE
+galaxy_uwsgi_static_conf: false
+
+configure_docker: yes
+use_pbkdf2: false
+
+extra_files_path: extra-files/docker-galaxy-stable
+additional_files_list:
+  - { src: "{{ extra-files_path }}/welcome.html", dest: "{ galaxy_config_dir }}/web/welcome.html" }
+  - { src: "{{ extra-files_path }}/GalaxyDocker.png", dest: "{{ galaxy_config_dir }}/web/welcome_image.png" }
+  - { src: "{{ extra-files_path }}/tool_sheds_conf.xml", dest: "{{ galaxy_config_dir }}/tool_sheds_conf.xml" }
+
+environmental_variables_file: "{{ extra_files_path }}/environmental_variables.yml""

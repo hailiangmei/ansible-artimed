@@ -1,6 +1,9 @@
 - hosts: all
   sudo: yes
 
+  vars_files:
+    - "{{ environmental_variables_file | default({}) }}"
+
   roles:
     #installs system package requirements
     - role: galaxyprojectdotorg.galaxy-os
@@ -72,3 +75,6 @@
     - role: artimed_extras
       restart_galaxy: true
       when: install_tools or run_data_manager
+
+  environment: "{{ runtime_env | default(NO_ENV:TRUE) }}"
+
