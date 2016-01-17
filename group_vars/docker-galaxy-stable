@@ -26,4 +26,4 @@ additional_files_list:
   - { src: "{{ extra-files_path }}/GalaxyDocker.png", dest: "{{ galaxy_config_dir }}/web/welcome_image.png" }
   - { src: "{{ extra-files_path }}/tool_sheds_conf.xml", dest: "{{ galaxy_config_dir }}/tool_sheds_conf.xml" }
 
-environmental_variables_file: "{{ extra_files_path }}/environmental_variables.yml""
+environmental_variable_files: ["{{ extra_files_path }}/environmental_variables.yml"]

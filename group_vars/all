@@ -23,6 +23,8 @@ postgresql_version: 9.3
 apt_package_state: present
 galaxy_extras_apt_package_state: present
 additional_files_list: []
+#environmental_variables_file: extra-files/empty_environment.yml
+environmental_variable_files: []
 
 # galaxy role variables
 
