@@ -65,6 +65,8 @@ galaxy_config:
     dynamic_proxy_bind_port: 8800
     dynamic_proxy_bind_ip: 0.0.0.0
     dynamic_proxy_debug: true
+    dynamic_proxy_external_proxy: true
+    dynamic_proxy_prefix: gie_proxy
   "uwsgi":
     master: True
   "filter:proxy-prefix":
